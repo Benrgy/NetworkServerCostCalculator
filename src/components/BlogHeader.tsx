@@ -25,10 +25,21 @@ const BlogHeader = () => {
           </div>
           
           <div className="hidden md:flex space-x-6">
-            <a href="#" className="hover:text-blog-accent transition-colors">Home</a>
-            <a href="#" className="hover:text-blog-accent transition-colors">Products</a>
-            <a href="#" className="hover:text-blog-accent transition-colors">Pricing</a>
-            <a href="#" className="hover:text-blog-accent transition-colors">Blog</a>
+            <a href="/" className="hover:text-blog-accent transition-colors">Home</a>
+            <div className="relative group">
+              <a href="#" className="hover:text-blog-accent transition-colors cursor-pointer">Categories</a>
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-2">
+                  <a href="/cost-pricing" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Cost & Pricing</a>
+                  <a href="/setup-guide" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Setup & Configuration</a>
+                  <a href="/security-maintenance" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Security & Maintenance</a>
+                  <a href="/hardware-performance" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Hardware & Performance</a>
+                  <a href="/business-solutions" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Business Solutions</a>
+                </div>
+              </div>
+            </div>
+            <a href="/about" className="hover:text-blog-accent transition-colors">About</a>
+            <a href="/contact" className="hover:text-blog-accent transition-colors">Contact</a>
           </div>
         </div>
         
