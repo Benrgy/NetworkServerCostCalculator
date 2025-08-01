@@ -61,7 +61,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'hero-circle-1': 'hsl(var(--hero-circle-1))',
+				'hero-circle-2': 'hsl(var(--hero-circle-2))',
+				'blog-accent': 'hsl(var(--blog-accent))',
+				'blog-text': 'hsl(var(--blog-text))'
+			},
+			backgroundImage: {
+				'hero-gradient': 'var(--hero-gradient)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
