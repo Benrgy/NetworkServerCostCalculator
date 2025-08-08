@@ -17,6 +17,8 @@ const BlogPost = ({ image, title, excerpt, author, date, category }: BlogPostPro
           <img 
             src={image} 
             alt={title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-48 md:h-full object-cover"
           />
         </div>
