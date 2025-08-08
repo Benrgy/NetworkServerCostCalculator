@@ -13,7 +13,7 @@ const BlogHeader = () => {
       <div className="absolute bottom-1/4 left-1/3 w-8 h-8 bg-hero-circle-2 rounded-full opacity-25"></div>
       
       {/* Top notification bar */}
-      <div className="bg-black/10 text-blog-text text-sm py-2 px-4 text-center">
+      <div className="bg-foreground/10 text-blog-text text-sm py-2 px-4 text-center">
         🚀 Unlock the world's largest collection of Network & Server Components. Join Pro →
       </div>
       
@@ -31,7 +31,7 @@ const BlogHeader = () => {
             <Link to="/" className="hover:text-blog-accent transition-colors">Home</Link>
             <div className="relative group">
               <button className="hover:text-blog-accent transition-colors cursor-pointer">Categories</button>
-              <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute top-full left-0 mt-2 w-60 bg-card rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="py-2">
                   <Link to="/network-server-cost" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Cost & Pricing</Link>
                   <Link to="/network-server-setup-guide-beginners" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Setup & Configuration</Link>
@@ -53,21 +53,46 @@ const BlogHeader = () => {
       
       {/* Hero content */}
       {isHome && (
-        <div className="flex-1 flex items-center justify-center px-6 pb-12">
-          <div className="text-center max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Cut network server costs and boost performance
+        <div className="flex-1 flex items-center justify-center px-6 pb-16">
+          <div className="mx-auto max-w-5xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/60 px-3 py-1 text-sm text-muted-foreground backdrop-blur">
+              <span className="inline-block h-2 w-2 rounded-full bg-accent" />
+              New for 2025: SMB server playbooks
+            </div>
+            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">\
+                Cut network server costs
+              </span>
+              <span className="block text-foreground">and boost performance</span>
             </h1>
-            <p className="text-blog-text/90 mb-6 text-lg md:text-xl">
+            <p className="mt-4 text-blog-text/90 text-lg md:text-xl">
               Practical guides, hardware picks, and cost breakdowns by Debar Sem — built for SMBs and power users.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link to="/network-server-cost">
                 <Button size="lg" className="bg-blog-accent text-primary hover:bg-blog-accent/90">Cost Guide 2025</Button>
               </Link>
               <Link to="/best-network-server-small-business">
                 <Button size="lg" variant="outline">Best Servers for SMB</Button>
               </Link>
+            </div>
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="rounded-lg border border-border/60 bg-card/60 p-3 backdrop-blur">
+                <p className="text-sm text-muted-foreground">Avg. monthly cost</p>
+                <p className="text-lg font-semibold">€2.6–€6.5</p>
+              </div>
+              <div className="rounded-lg border border-border/60 bg-card/60 p-3 backdrop-blur">
+                <p className="text-sm text-muted-foreground">Readers helped</p>
+                <p className="text-lg font-semibold">10k+</p>
+              </div>
+              <div className="rounded-lg border border-border/60 bg-card/60 p-3 backdrop-blur">
+                <p className="text-sm text-muted-foreground">Build guides</p>
+                <p className="text-lg font-semibold">25+</p>
+              </div>
+              <div className="rounded-lg border border-border/60 bg-card/60 p-3 backdrop-blur">
+                <p className="text-sm text-muted-foreground">Updated</p>
+                <p className="text-lg font-semibold">2025</p>
+              </div>
             </div>
           </div>
         </div>
