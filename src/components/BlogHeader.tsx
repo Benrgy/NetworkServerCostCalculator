@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const BlogHeader = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   return (
     <header className="relative overflow-hidden bg-hero-gradient min-h-[300px] flex flex-col">
       {/* Background circles */}
@@ -25,21 +28,21 @@ const BlogHeader = () => {
           </div>
           
           <div className="hidden md:flex space-x-6">
-            <a href="/" className="hover:text-blog-accent transition-colors">Home</a>
+            <Link to="/" className="hover:text-blog-accent transition-colors">Home</Link>
             <div className="relative group">
-              <a href="#" className="hover:text-blog-accent transition-colors cursor-pointer">Categories</a>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <button className="hover:text-blog-accent transition-colors cursor-pointer">Categories</button>
+              <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="py-2">
-                  <a href="/cost-pricing" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Cost & Pricing</a>
-                  <a href="/setup-guide" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Setup & Configuration</a>
-                  <a href="/security-maintenance" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Security & Maintenance</a>
-                  <a href="/hardware-performance" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Hardware & Performance</a>
-                  <a href="/business-solutions" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Business Solutions</a>
+                  <Link to="/network-server-cost" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Cost & Pricing</Link>
+                  <Link to="/network-server-setup-guide-beginners" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Setup & Configuration</Link>
+                  <Link to="/secure-home-network-server" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Security & Maintenance</Link>
+                  <Link to="/best-hardware-file-server" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Hardware & Performance</Link>
+                  <Link to="/best-network-server-small-business" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Business Solutions</Link>
                 </div>
               </div>
             </div>
-            <a href="/about" className="hover:text-blog-accent transition-colors">About</a>
-            <a href="/contact" className="hover:text-blog-accent transition-colors">Contact</a>
+            <Link to="/about" className="hover:text-blog-accent transition-colors">About</Link>
+            <Link to="/contact" className="hover:text-blog-accent transition-colors">Contact</Link>
           </div>
         </div>
         
@@ -49,14 +52,27 @@ const BlogHeader = () => {
       </nav>
       
       {/* Hero content */}
-      <div className="flex-1 flex items-center justify-center px-6 pb-8">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-blog-text mb-4">
-            Our blog
-          </h1>
-          <div className="w-24 h-1 bg-blog-accent mx-auto rounded-full"></div>
+      {isHome && (
+        <div className="flex-1 flex items-center justify-center px-6 pb-12">
+          <div className="text-center max-w-3xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Cut network server costs and boost performance
+            </h1>
+            <p className="text-blog-text/90 mb-6 text-lg md:text-xl">
+              Practical guides, hardware picks, and cost breakdowns by Debar Sem — built for SMBs and power users.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link to="/network-server-cost">
+                <Button size="lg" className="bg-blog-accent text-primary hover:bg-blog-accent/90">Cost Guide 2025</Button>
+              </Link>
+              <Link to="/best-network-server-small-business">
+                <Button size="lg" variant="outline">Best Servers for SMB</Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
+
     </header>
   );
 };

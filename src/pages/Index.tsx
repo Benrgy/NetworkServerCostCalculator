@@ -4,7 +4,7 @@ import BlogSidebar from "@/components/BlogSidebar";
 import BlogFooter from "@/components/BlogFooter";
 import { blogPosts, featuredPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
-
+import FAQ from "@/components/FAQ";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -44,6 +44,8 @@ const Index = () => {
           </div>
         </div>
       </div>
+      
+      <FAQ />
       
       <BlogFooter />
     </div>
