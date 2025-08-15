@@ -2,6 +2,9 @@ import BlogHeader from "@/components/BlogHeader";
 import BlogFooter from "@/components/BlogFooter";
 import ArticleLayout from "@/components/ArticleLayout";
 import SEO from "@/components/SEO";
+import AmazonProduct from "@/components/AmazonProduct";
+import ProductComparison from "@/components/ProductComparison";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import hardwareImg from "@/assets/network-hardware.jpg";
@@ -61,6 +64,8 @@ const BestFileServerHardware = () => {
           </ul>
         </section>
 
+        <AffiliateDisclosure />
+
         <Separator />
 
         <section>
@@ -97,6 +102,128 @@ const BestFileServerHardware = () => {
           <p><strong>Ideal for:</strong> 25–100 users, VMs/containers, high concurrency. ~€2,500–€6,000 + disks</p>
         </section>
 
+        <section className="my-8">
+          <h2>Top Hardware Picks (2025)</h2>
+          
+          <h3 className="mb-4">Best NAS Hard Drives</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            <AmazonProduct
+              title="WD Red Plus 8TB NAS HDD"
+              price="$179.99"
+              originalPrice="$199.99"
+              rating={4.6}
+              reviewCount={8247}
+              asin="B08VHM7HV1"
+              category="NAS Storage"
+              features={[
+                "3.5-inch SATA 6Gb/s 5400 RPM",
+                "256MB Cache, CMR technology",
+                "3-year manufacturer limited warranty",
+                "Optimized for 1-8 bay NAS systems"
+              ]}
+            />
+            
+            <AmazonProduct
+              title="Seagate IronWolf 4TB NAS HDD"
+              price="$94.99"
+              originalPrice="$109.99"
+              rating={4.5}
+              reviewCount={12453}
+              asin="B071KGRQX6"
+              category="NAS Storage"
+              features={[
+                "3.5-inch SATA 6Gb/s 5900 RPM",
+                "64MB Cache, optimized for NAS",
+                "3-year Rescue Service included",
+                "1M hours MTBF, 180TB/year workload"
+              ]}
+            />
+          </div>
+
+          <h3 className="mb-4 mt-8">Best Network Interface Cards</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            <AmazonProduct
+              title="Intel X550-T2 Dual Port 10GbE Network Card"
+              price="$289.99"
+              rating={4.4}
+              reviewCount={432}
+              asin="B01H6NI8R2"
+              category="Networking"
+              features={[
+                "Dual-port 10GBASE-T Ethernet",
+                "PCIe 3.0 x8 interface",
+                "RJ45 copper connections",
+                "Low power consumption"
+              ]}
+            />
+            
+            <AmazonProduct
+              title="Mellanox ConnectX-3 10GbE SFP+ Card"
+              price="$59.99"
+              originalPrice="$79.99"
+              rating={4.2}
+              reviewCount={267}
+              asin="B00F6NKQZM"
+              category="Networking"
+              features={[
+                "Single-port 10GbE SFP+",
+                "PCIe 3.0 x8 low profile",
+                "Compatible with fiber and DAC",
+                "Enterprise-grade reliability"
+              ]}
+            />
+          </div>
+
+          <ProductComparison
+            title="HBA Controller Comparison"
+            comparisonFeatures={["Ports", "RAID Support", "IT Mode", "Price Range"]}
+            products={[
+              {
+                name: "LSI 9211-8i",
+                price: "$89.99",
+                asin: "B002RL8I7O",
+                category: "Budget",
+                features: {
+                  "Ports": "8 SATA/SAS",
+                  "RAID Support": false,
+                  "IT Mode": true,
+                  "Price Range": "Budget"
+                },
+                pros: ["ZFS compatible", "Reliable", "Good community support"],
+                cons: ["PCIe 2.0", "No RAID"]
+              },
+              {
+                name: "LSI 9300-8i",
+                price: "$149.99",
+                asin: "B00ATC7BTO",
+                category: "Performance",
+                features: {
+                  "Ports": "8 SATA/SAS",
+                  "RAID Support": false,
+                  "IT Mode": true,
+                  "Price Range": "Mid-range"
+                },
+                pros: ["PCIe 3.0", "12Gb/s per port", "Lower power"],
+                cons: ["Higher cost", "Newer firmware needed"]
+              },
+              {
+                name: "Broadcom 9400-8i",
+                price: "$249.99",
+                asin: "B07MFGYNXZ",
+                category: "Enterprise",
+                features: {
+                  "Ports": "8 SATA/SAS",
+                  "RAID Support": true,
+                  "IT Mode": true,
+                  "Price Range": "Premium"
+                },
+                pros: ["Latest generation", "Tri-mode support", "Best performance"],
+                cons: ["Expensive", "Complex setup"]
+              }
+            ]}
+          />
+        </section>
+
         <Separator />
 
         <section>
@@ -117,9 +244,73 @@ const BestFileServerHardware = () => {
           </ul>
         </section>
 
-        <Card className="mt-8">
+        <section className="my-8">
+          <h2>Complete Build Recommendations</h2>
+          
+          <h3 className="mb-4">Budget Home Server Build (~$599)</h3>
+          <div className="grid gap-4">
+            <AmazonProduct
+              title="QNAP TS-251D-2G 2-Bay Personal NAS"
+              price="$299.99"
+              originalPrice="$349.99"
+              rating={4.3}
+              reviewCount={1247}
+              asin="B084Z31T2D"
+              category="Complete NAS"
+              features={[
+                "Intel Celeron J4005 dual-core CPU",
+                "2GB DDR4 RAM (expandable to 8GB)",
+                "Dual Gigabit Ethernet ports",
+                "Hardware encryption, 4K transcoding"
+              ]}
+            />
+          </div>
+          
+          <h3 className="mb-4 mt-6">Professional SMB Server Components</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            <AmazonProduct
+              title="Supermicro Mini-ITX Server Motherboard"
+              price="$189.99"
+              rating={4.1}
+              reviewCount={89}
+              asin="B07H9JF1TC"
+              category="Motherboard"
+              features={[
+                "Intel C246 chipset",
+                "ECC UDIMM support up to 64GB",
+                "2x Intel Gigabit Ethernet",
+                "IPMI 2.0 with KVM-over-LAN"
+              ]}
+            />
+            
+            <AmazonProduct
+              title="Kingston Server Premier 32GB DDR4 ECC"
+              price="$159.99"
+              originalPrice="$189.99"
+              rating={4.6}
+              reviewCount={543}
+              asin="B07N1JNK7K"
+              category="Memory"
+              features={[
+                "32GB DDR4-2666 ECC UDIMM",
+                "Error correction for data integrity",
+                "Intel/AMD server platform compatible",
+                "Lifetime warranty"
+              ]}
+            />
+          </div>
+        </section>
+
+        <Card className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
           <CardContent className="p-6">
-            <p className="text-sm text-muted-foreground">Affiliate note: Some links may be affiliate links that support the site at no cost to you.</p>
+            <h3 className="font-semibold text-lg mb-3 text-blue-900">💡 Pro Tip: Build Your Own vs Buy Pre-built</h3>
+            <p className="text-blue-800 mb-4">
+              Building your own server can save 30-40% compared to pre-built solutions, plus you get exactly the components you need. 
+              However, pre-built NAS units offer better warranty support and easier setup for non-technical users.
+            </p>
+            <p className="text-sm text-blue-700">
+              💰 <strong>Budget savings:</strong> Check Amazon Warehouse deals for open-box server components—often 15-25% off with full warranty.
+            </p>
           </CardContent>
         </Card>
       </ArticleLayout>
