@@ -278,7 +278,7 @@ const SecureHomeNetworkServer = () => {
               <Button 
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-white"
-                onClick={() => window.open('https://amazon.com/tag=networks25-21', '_blank')}
+                onClick={() => window.open('https://www.amazon.com/s?k=network+security+hardware&tag=networks25-21', '_blank')}
               >
                 Shop Security Hardware →
               </Button>
