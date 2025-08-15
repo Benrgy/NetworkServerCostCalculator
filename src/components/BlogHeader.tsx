@@ -69,9 +69,10 @@ const BlogHeader = () => {
             </div>
             <div className="mt-16">
               <img 
-                src="/placeholder.svg" 
-                alt="Dashboard preview" 
+                src="/src/assets/dashboard-preview.jpg" 
+                alt="Network server dashboard interface showing monitoring graphs and performance metrics" 
                 className="mx-auto max-w-4xl w-full rounded-xl border border-border shadow-2xl"
+                loading="lazy"
               />
             </div>
           </div>
