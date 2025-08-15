@@ -3,6 +3,10 @@ import BlogPost from "@/components/BlogPost";
 import BlogSidebar from "@/components/BlogSidebar";
 import BlogFooter from "@/components/BlogFooter";
 import SEOOptimizer from "@/components/SEOOptimizer";
+import ServerCostCalculator from "@/components/ServerCostCalculator";
+import ServerBrandComparison from "@/components/ServerBrandComparison";
+import VoiceSearchContent from "@/components/VoiceSearchContent";
+import InternalLinkingHub from "@/components/InternalLinkingHub";
 import { blogPosts, featuredPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
 import FAQ from "@/components/FAQ";
@@ -115,6 +119,26 @@ const Index = () => {
             "Build internal linking strategy between related topics"
           ]}
         />
+      </div>
+      
+      {/* Server Cost Calculator */}
+      <div className="container mx-auto px-6 py-12">
+        <ServerCostCalculator />
+      </div>
+      
+      {/* Server Brand Comparison */}
+      <div className="container mx-auto px-6 py-12">
+        <ServerBrandComparison />
+      </div>
+      
+      {/* Voice Search Optimization */}
+      <div className="container mx-auto px-6 py-12">
+        <VoiceSearchContent />
+      </div>
+      
+      {/* Internal Linking Strategy */}
+      <div className="container mx-auto px-6 py-12">
+        <InternalLinkingHub />
       </div>
       
       <FAQ />
