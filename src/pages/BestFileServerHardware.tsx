@@ -113,7 +113,7 @@ const BestFileServerHardware = () => {
               originalPrice="$199.99"
               rating={4.6}
               reviewCount={8247}
-              asin="B08VHM7HV1"
+              asin="B08BFGH3FB"
               category="NAS Storage"
               features={[
                 "3.5-inch SATA 6Gb/s 5400 RPM",
@@ -163,7 +163,7 @@ const BestFileServerHardware = () => {
               originalPrice="$79.99"
               rating={4.2}
               reviewCount={267}
-              asin="B00F6NKQZM"
+              asin="B07QBQB7D9"
               category="Networking"
               features={[
                 "Single-port 10GbE SFP+",
@@ -209,7 +209,7 @@ const BestFileServerHardware = () => {
               {
                 name: "Broadcom 9400-8i",
                 price: "$249.99",
-                asin: "B07MFGYNXZ",
+                asin: "B07R5RVBVX",
                 category: "Enterprise",
                 features: {
                   "Ports": "8 SATA/SAS",
@@ -255,7 +255,7 @@ const BestFileServerHardware = () => {
               originalPrice="$349.99"
               rating={4.3}
               reviewCount={1247}
-              asin="B084Z31T2D"
+              asin="B084Z3TWGD"
               category="Complete NAS"
               features={[
                 "Intel Celeron J4005 dual-core CPU",
@@ -273,7 +273,7 @@ const BestFileServerHardware = () => {
               price="$189.99"
               rating={4.1}
               reviewCount={89}
-              asin="B07H9JF1TC"
+              asin="B078JPMBDT"
               category="Motherboard"
               features={[
                 "Intel C246 chipset",
@@ -289,7 +289,7 @@ const BestFileServerHardware = () => {
               originalPrice="$189.99"
               rating={4.6}
               reviewCount={543}
-              asin="B07N1JNK7K"
+              asin="B07N1JG6DN"
               category="Memory"
               features={[
                 "32GB DDR4-2666 ECC UDIMM",
