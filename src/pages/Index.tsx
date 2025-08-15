@@ -2,6 +2,7 @@ import BlogHeader from "@/components/BlogHeader";
 import BlogPost from "@/components/BlogPost";
 import BlogSidebar from "@/components/BlogSidebar";
 import BlogFooter from "@/components/BlogFooter";
+import SEOOptimizer from "@/components/SEOOptimizer";
 import { blogPosts, featuredPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
 import FAQ from "@/components/FAQ";
@@ -11,18 +12,42 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <BlogHeader />
       <SEO
-        title="Network Server Guides, Hardware & Cost (2025)"
-        description="Actionable guides to build, secure and optimize network servers. Hardware picks, cost breakdowns, and step‑by‑step tutorials."
+        title="Network Server Guides, Hardware & Cost Analysis (2025) - NetworkServers"
+        description="Expert network server guides, hardware recommendations, and cost analysis. Compare enterprise vs cloud servers, setup tutorials, and optimization strategies for small businesses."
         canonicalUrl={typeof window !== "undefined" ? `${window.location.origin}/` : undefined}
+        keywords="network servers, file servers, server hardware, enterprise servers, cloud servers, server cost analysis, network infrastructure, server setup guide, small business servers, server performance optimization"
+        publishedTime="2025-01-15T00:00:00Z"
+        modifiedTime={new Date().toISOString()}
+        tags={["network servers", "file servers", "enterprise infrastructure", "server hardware", "cost analysis"]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "NetworkServers",
-          url: typeof window !== "undefined" ? `${window.location.origin}/` : undefined,
-          potentialAction: {
+          "name": "NetworkServers",
+          "alternateName": "Network Server Expert Guides",
+          "url": typeof window !== "undefined" ? `${window.location.origin}/` : undefined,
+          "description": "Expert network server guides, hardware recommendations, and cost analysis for businesses",
+          "potentialAction": {
             "@type": "SearchAction",
-            target: `${typeof window !== "undefined" ? window.location.origin : ""}/?q={search_term_string}`,
+            "target": `${typeof window !== "undefined" ? window.location.origin : ""}/?q={search_term_string}`,
             "query-input": "required name=search_term_string"
+          },
+          "sameAs": [
+            "https://twitter.com/networkservers",
+            "https://linkedin.com/company/networkservers"
+          ],
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": blogPosts.map((post, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "Article",
+                "headline": post.title,
+                "description": post.excerpt,
+                "author": post.author,
+                "datePublished": post.date
+              }
+            }))
           }
         }}
       />
@@ -60,6 +85,36 @@ const Index = () => {
             <BlogSidebar featuredPosts={featuredPosts} />
           </div>
         </div>
+      </div>
+      
+      {/* SEO Performance Dashboard */}
+      <div className="container mx-auto px-6 py-12">
+        <SEOOptimizer
+          title="Network Server Content Hub"
+          targetKeywords={[
+            "network server cost",
+            "file server hardware",
+            "small business servers",
+            "enterprise server setup",
+            "server performance optimization",
+            "network infrastructure planning",
+            "server hardware comparison",
+            "cloud vs dedicated servers"
+          ]}
+          currentRanking={15}
+          searchVolume={12400}
+          difficulty={42}
+          opportunities={[
+            "Target 'best network server for small business 2025' (low competition)",
+            "Create comparison tables for server hardware brands",
+            "Add cost calculator tools for server ROI analysis",
+            "Optimize for voice search queries about server setup",
+            "Target long-tail keywords about specific server problems",
+            "Create location-based content for 'server providers near me'",
+            "Add video content for server setup tutorials",
+            "Build internal linking strategy between related topics"
+          ]}
+        />
       </div>
       
       <FAQ />

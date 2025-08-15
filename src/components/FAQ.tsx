@@ -45,41 +45,46 @@ const faqs = [
 ];
 
 const FAQ = () => {
-  useEffect(() => {
-    // Add FAQPage JSON-LD for rich results
-    const jsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((f) => ({
-        '@type': 'Question',
-        name: f.q,
-        acceptedAnswer: { '@type': 'Answer', text: f.a }
-      }))
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(jsonLd);
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
   return (
-    <section className="container mx-auto px-6 py-12">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-        <p className="text-muted-foreground mb-8">Quick answers to common network server questions.</p>
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+    <section className="bg-muted/30 py-16">
+      <div className="container mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Frequently Asked Questions</h2>
+            <p className="text-xl text-muted-foreground">
+              Expert answers to common network server questions
+            </p>
+          </div>
+          
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline py-6">
+                  <span className="font-medium text-foreground">{faq.q}</span>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 text-muted-foreground leading-relaxed">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          
+          {/* Structured data for FAQ */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.a
+                }
+              }))
+            })}
+          </script>
+        </div>
       </div>
     </section>
   );
