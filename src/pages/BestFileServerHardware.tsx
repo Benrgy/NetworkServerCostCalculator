@@ -113,7 +113,7 @@ const BestFileServerHardware = () => {
               originalPrice="$199.99"
               rating={4.6}
               reviewCount={8247}
-              asin="B08BFGH3FB"
+              asin="B08VHJ4M1S"
               category="NAS Storage"
               features={[
                 "3.5-inch SATA 6Gb/s 5400 RPM",
@@ -147,7 +147,7 @@ const BestFileServerHardware = () => {
               price="$289.99"
               rating={4.4}
               reviewCount={432}
-              asin="B01H6NI8R2"
+              asin="B01LZRSQM9"
               category="Networking"
               features={[
                 "Dual-port 10GBASE-T Ethernet",
@@ -163,7 +163,7 @@ const BestFileServerHardware = () => {
               originalPrice="$79.99"
               rating={4.2}
               reviewCount={267}
-              asin="B07QBQB7D9"
+              asin="B00BLZTD5O"
               category="Networking"
               features={[
                 "Single-port 10GbE SFP+",
@@ -255,7 +255,7 @@ const BestFileServerHardware = () => {
               originalPrice="$349.99"
               rating={4.3}
               reviewCount={1247}
-              asin="B084Z3TWGD"
+              asin="B084Z3T61C"
               category="Complete NAS"
               features={[
                 "Intel Celeron J4005 dual-core CPU",
@@ -273,7 +273,7 @@ const BestFileServerHardware = () => {
               price="$189.99"
               rating={4.1}
               reviewCount={89}
-              asin="B078JPMBDT"
+              asin="B078JQMXGR"
               category="Motherboard"
               features={[
                 "Intel C246 chipset",
@@ -289,7 +289,7 @@ const BestFileServerHardware = () => {
               originalPrice="$189.99"
               rating={4.6}
               reviewCount={543}
-              asin="B07N1JG6DN"
+              asin="B07N1JB5Q4"
               category="Memory"
               features={[
                 "32GB DDR4-2666 ECC UDIMM",
