@@ -5,7 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const base = mode === 'production' ? '/REPOSITORY_NAME/' : '/';
+  // Auto-detect base path for GitHub Pages
+  const base = mode === 'production' 
+    ? (process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/')
+    : '/';
   
   return {
     base,

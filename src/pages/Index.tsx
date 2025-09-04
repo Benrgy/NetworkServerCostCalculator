@@ -2,11 +2,10 @@ import BlogHeader from "@/components/BlogHeader";
 import BlogPost from "@/components/BlogPost";
 import BlogSidebar from "@/components/BlogSidebar";
 import BlogFooter from "@/components/BlogFooter";
-import SEOOptimizer from "@/components/SEOOptimizer";
 import ServerCostCalculator from "@/components/ServerCostCalculator";
 import ServerBrandComparison from "@/components/ServerBrandComparison";
-import VoiceSearchContent from "@/components/VoiceSearchContent";
-import InternalLinkingHub from "@/components/InternalLinkingHub";
+import AIOptimizedFAQ from "@/components/AIOptimizedFAQ";
+import ContentClusterNavigation from "@/components/ContentClusterNavigation";
 import { blogPosts, featuredPosts } from "@/data/blogPosts";
 import { Button } from "@/components/ui/button";
 import FAQ from "@/components/FAQ";
@@ -91,35 +90,6 @@ const Index = () => {
         </div>
       </div>
       
-      {/* SEO Performance Dashboard */}
-      <div className="container mx-auto px-6 py-12">
-        <SEOOptimizer
-          title="Network Server Content Hub"
-          targetKeywords={[
-            "network server cost",
-            "file server hardware",
-            "small business servers",
-            "enterprise server setup",
-            "server performance optimization",
-            "network infrastructure planning",
-            "server hardware comparison",
-            "cloud vs dedicated servers"
-          ]}
-          currentRanking={15}
-          searchVolume={12400}
-          difficulty={42}
-          opportunities={[
-            "Target 'best network server for small business 2025' (low competition)",
-            "Create comparison tables for server hardware brands",
-            "Add cost calculator tools for server ROI analysis",
-            "Optimize for voice search queries about server setup",
-            "Target long-tail keywords about specific server problems",
-            "Create location-based content for 'server providers near me'",
-            "Add video content for server setup tutorials",
-            "Build internal linking strategy between related topics"
-          ]}
-        />
-      </div>
       
       {/* Server Cost Calculator */}
       <div className="container mx-auto px-6 py-12">
@@ -131,14 +101,14 @@ const Index = () => {
         <ServerBrandComparison />
       </div>
       
-      {/* Voice Search Optimization */}
+      {/* Expert Q&A for AI Optimization */}
       <div className="container mx-auto px-6 py-12">
-        <VoiceSearchContent />
+        <AIOptimizedFAQ />
       </div>
       
-      {/* Internal Linking Strategy */}
+      {/* Content Navigation Hub */}
       <div className="container mx-auto px-6 py-12">
-        <InternalLinkingHub />
+        <ContentClusterNavigation />
       </div>
       
       <FAQ />
