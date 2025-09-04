@@ -1,0 +1,18 @@
+# Netlify SPA Configuration
+# Specific routes with proper status codes
+/network-server-cost /index.html 200
+/best-network-server-small-business /index.html 200
+/dedicated-server-vs-cloud-server-pros-cons /index.html 200
+/network-server-setup-guide-beginners /index.html 200
+/secure-home-network-server /index.html 200
+/low-cost-network-server-home /index.html 200
+/optimize-network-server-performance /index.html 200
+/network-server-troubleshooting /index.html 200
+/best-hardware-file-server /index.html 200
+/what-is-network-server /index.html 200
+/server-maintenance-checklist-smb /index.html 200
+/about /index.html 200
+/contact /index.html 200
+
+# Fallback for all other routes
+/* /index.html 200

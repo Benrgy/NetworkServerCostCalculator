@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { SEOWrapper } from "@/components/SEOWrapper";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import NetworkServerCost from "./pages/NetworkServerCost";
@@ -28,25 +29,27 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/network-server-cost" element={<NetworkServerCost />} />
-          <Route path="/best-network-server-small-business" element={<BestServerSmallBusiness />} />
-          <Route path="/dedicated-server-vs-cloud-server-pros-cons" element={<DedicatedVsCloudServer />} />
-          <Route path="/network-server-setup-guide-beginners" element={<ServerSetupGuide />} />
-          <Route path="/secure-home-network-server" element={<SecureHomeNetworkServer />} />
-          <Route path="/low-cost-network-server-home" element={<LowCostNetworkServer />} />
-          <Route path="/optimize-network-server-performance" element={<OptimizeServerPerformance />} />
-          <Route path="/network-server-troubleshooting" element={<ServerTroubleshooting />} />
-          <Route path="/best-hardware-file-server" element={<BestFileServerHardware />} />
-          <Route path="/what-is-network-server" element={<WhatIsNetworkServer />} />
-          <Route path="/server-maintenance-checklist-smb" element={<ServerMaintenanceChecklist />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <BrowserRouter>
+          <SEOWrapper>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/network-server-cost" element={<NetworkServerCost />} />
+              <Route path="/best-network-server-small-business" element={<BestServerSmallBusiness />} />
+              <Route path="/dedicated-server-vs-cloud-server-pros-cons" element={<DedicatedVsCloudServer />} />
+              <Route path="/network-server-setup-guide-beginners" element={<ServerSetupGuide />} />
+              <Route path="/secure-home-network-server" element={<SecureHomeNetworkServer />} />
+              <Route path="/low-cost-network-server-home" element={<LowCostNetworkServer />} />
+              <Route path="/optimize-network-server-performance" element={<OptimizeServerPerformance />} />
+              <Route path="/network-server-troubleshooting" element={<ServerTroubleshooting />} />
+              <Route path="/best-hardware-file-server" element={<BestFileServerHardware />} />
+              <Route path="/what-is-network-server" element={<WhatIsNetworkServer />} />
+              <Route path="/server-maintenance-checklist-smb" element={<ServerMaintenanceChecklist />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </SEOWrapper>
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>
