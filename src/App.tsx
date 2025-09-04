@@ -18,6 +18,11 @@ import ServerTroubleshooting from "./pages/ServerTroubleshooting";
 import BestFileServerHardware from "./pages/BestFileServerHardware";
 import WhatIsNetworkServer from "./pages/WhatIsNetworkServer";
 import ServerMaintenanceChecklist from "./pages/ServerMaintenanceChecklist";
+import BestNetworkServerUnder1000 from "./pages/BestNetworkServerUnder1000";
+import BuildFileServerHome2025 from "./pages/BuildFileServerHome2025";
+import NetworkServerVsNasOffice from "./pages/NetworkServerVsNasOffice";
+import CheapestBusinessFileServer from "./pages/CheapestBusinessFileServer";
+import EnterpriseServerBrands2025 from "./pages/EnterpriseServerBrands2025";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -44,6 +49,11 @@ const App = () => (
               <Route path="/best-hardware-file-server" element={<BestFileServerHardware />} />
               <Route path="/what-is-network-server" element={<WhatIsNetworkServer />} />
               <Route path="/server-maintenance-checklist-smb" element={<ServerMaintenanceChecklist />} />
+              <Route path="/best-network-server-small-business-under-1000" element={<BestNetworkServerUnder1000 />} />
+              <Route path="/how-to-build-file-server-home-2025" element={<BuildFileServerHome2025 />} />
+              <Route path="/network-server-vs-nas-small-office" element={<NetworkServerVsNasOffice />} />
+              <Route path="/cheapest-way-business-file-server" element={<CheapestBusinessFileServer />} />
+              <Route path="/enterprise-server-brands-comparison-2025" element={<EnterpriseServerBrands2025 />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
