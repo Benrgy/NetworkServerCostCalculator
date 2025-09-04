@@ -8,7 +8,7 @@ const BlogHeader = () => {
     <header className="relative overflow-hidden bg-background border-b border-border">
       {/* Top notification bar */}
       <div className="bg-muted text-foreground text-sm py-2 px-4 text-center">
-        🚀 Unlock the world's largest collection of Network & Server Components. Join Pro →
+        🆕 New for 2025: Complete SMB Server Cost Breakdown & Hardware Guide →
       </div>
       
       {/* Navigation */}
@@ -51,21 +51,29 @@ const BlogHeader = () => {
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-sm text-muted-foreground">
               <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-              New for 2025: SMB server playbooks
+              Expert reviews of 200+ server models
             </div>
-            <h1 className="mt-8 text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-              Transform Your Ideas Into{" "}
+            <h1 className="mt-8 text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+              Network Server Cost Calculator &{" "}
               <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Reality
-              </span>
+                Expert Buying Guide
+              </span>{" "}
+              for Small Business 2025
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of entrepreneurs who trust our platform to launch, scale, and grow their startups from concept to success.
+            <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto">
+              Compare enterprise vs cloud server costs, get hardware recommendations, and find the best network servers under €5,000. Trusted by 10,000+ IT professionals for unbiased server advice.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
-                Try for Free
+                Calculate Server Costs
               </Button>
+              <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
+                View Hardware Guide →
+              </Button>
+            </div>
+            <div className="mt-12 text-center">
+              <div className="text-sm text-muted-foreground mb-2">Trusted by IT teams at SMBs across Europe</div>
+              <div className="text-lg font-semibold text-foreground">€2M+ in server purchases guided</div>
             </div>
             <div className="mt-16">
               <img 
