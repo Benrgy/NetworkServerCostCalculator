@@ -64,11 +64,11 @@ const BlogHeader = () => {
               Compare enterprise vs cloud server costs, get hardware recommendations, and find the best network servers under €5,000. Trusted by 10,000+ IT professionals for unbiased server advice.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
-                Calculate Server Costs
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg" asChild>
+                <Link to="/network-server-cost">Calculate Server Costs</Link>
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
-                View Hardware Guide →
+              <Button variant="outline" size="lg" className="px-8 py-4 text-lg" asChild>
+                <Link to="/best-hardware-file-server">View Hardware Guide →</Link>
               </Button>
             </div>
             <div className="mt-12 text-center">
