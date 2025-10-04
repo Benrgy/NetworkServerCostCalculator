@@ -36,6 +36,51 @@ export const seoConfigs: Record<string, SEOConfig> = {
     twitterTitle: 'Best Network Servers for Small Business 2024',
     twitterDescription: 'Expert reviews and recommendations for small business servers.'
   },
+  '/best-network-server-under-1000': {
+    title: 'Best Network Server Under $1000 - Top Budget Solutions 2025',
+    description: 'Discover the best network servers under $1000 for small businesses and home offices. Compare performance, features, and value in our comprehensive budget server guide.',
+    keywords: 'best network server under 1000, budget server, affordable network server, cheap business server, network server under $1000',
+    ogTitle: 'Best Network Server Under $1000 - Top Budget Solutions 2025',
+    ogDescription: 'Discover the best network servers under $1000 for small businesses and home offices with detailed comparisons.',
+    twitterTitle: 'Best Network Server Under $1000',
+    twitterDescription: 'Top budget network server solutions for 2025 under $1000.'
+  },
+  '/build-file-server-home-2025': {
+    title: 'How to Build a File Server at Home in 2025 - Complete DIY Guide',
+    description: 'Step-by-step guide to building your own home file server in 2025. Learn hardware selection, OS installation, configuration, and security best practices for DIY NAS solutions.',
+    keywords: 'build file server home 2025, DIY file server, home NAS build, file server tutorial, build home server 2025',
+    ogTitle: 'How to Build a File Server at Home in 2025 - Complete DIY Guide',
+    ogDescription: 'Step-by-step guide to building your own home file server with hardware selection and security best practices.',
+    twitterTitle: 'Build a File Server at Home 2025',
+    twitterDescription: 'Complete DIY guide to building your own home file server in 2025.'
+  },
+  '/network-server-vs-nas-office': {
+    title: 'Network Server vs NAS for Small Office - Complete Comparison 2025',
+    description: 'Network Server vs NAS for small office: Compare costs, performance, scalability, and management. Expert guide to choosing the right storage solution for your business.',
+    keywords: 'network server vs nas, NAS vs server office, small office storage, NAS or server, business storage comparison',
+    ogTitle: 'Network Server vs NAS for Small Office - Complete Comparison 2025',
+    ogDescription: 'Compare network servers vs NAS for small office use with costs, performance, and scalability analysis.',
+    twitterTitle: 'Network Server vs NAS for Small Office',
+    twitterDescription: 'Expert comparison to help you choose between server and NAS for your business.'
+  },
+  '/cheapest-business-file-server': {
+    title: 'Cheapest Way to Set Up Business File Server - Budget Guide 2025',
+    description: 'Discover the most cost-effective ways to set up a business file server. Compare budget hardware, cloud vs on-premise costs, and money-saving strategies for SMBs.',
+    keywords: 'cheapest business file server, budget file server, affordable business storage, cheap server setup, low cost file server',
+    ogTitle: 'Cheapest Way to Set Up Business File Server - Budget Guide 2025',
+    ogDescription: 'Most cost-effective ways to set up a business file server with budget hardware and money-saving strategies.',
+    twitterTitle: 'Cheapest Business File Server Setup',
+    twitterDescription: 'Budget guide to setting up the most affordable business file server in 2025.'
+  },
+  '/enterprise-server-brands-2025': {
+    title: 'Enterprise Server Brands Comparison 2025 - Dell, HP, Lenovo & More',
+    description: 'Compare top enterprise server brands in 2025: Dell PowerEdge, HPE ProLiant, Lenovo ThinkSystem, and more. Expert analysis of reliability, performance, and value.',
+    keywords: 'enterprise server brands 2025, Dell vs HP servers, server brand comparison, best server manufacturers, enterprise server reviews 2025',
+    ogTitle: 'Enterprise Server Brands Comparison 2025 - Dell, HP, Lenovo & More',
+    ogDescription: 'Compare top enterprise server brands with expert analysis of reliability, performance, and value.',
+    twitterTitle: 'Enterprise Server Brands 2025',
+    twitterDescription: 'Compare Dell, HP, Lenovo and other top server brands in 2025.'
+  },
   '/dedicated-server-vs-cloud-server-pros-cons': {
     title: 'Dedicated Server vs Cloud Server - Pros, Cons & Cost Comparison 2024',
     description: 'Complete comparison of dedicated servers vs cloud servers. Analyze pros, cons, costs, performance, and security to make the right choice for your business.',
