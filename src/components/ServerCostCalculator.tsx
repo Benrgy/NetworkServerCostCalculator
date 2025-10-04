@@ -9,6 +9,9 @@ import { Calculator, TrendingUp, DollarSign, PieChart, BarChart3, Info, Download
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart as RePieChart, Pie, Cell } from "recharts";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { toast } from "@/hooks/use-toast";
+import CostProjectionChart from "./CostProjectionChart";
+import PersonalizedRecommendations from "./PersonalizedRecommendations";
+import ShareResults from "./ShareResults";
 
 // Input validation schema
 const calculatorInputSchema = z.object({
@@ -416,6 +419,14 @@ https://networkservers.com/network-server-cost-calculator
                       Export
                     </Button>
                   </div>
+                  <ShareResults 
+                    hardware={results.hardware}
+                    monthly={results.monthly}
+                    yearly={results.yearly}
+                    breakeven={results.breakeven}
+                    serverType={results.serverType}
+                    users={results.users}
+                  />
                   {calculationHistory.length > 0 && (
                     <Button 
                       onClick={() => setShowHistory(!showHistory)} 
@@ -523,6 +534,21 @@ https://networkservers.com/network-server-cost-calculator
 
               {/* Visual Charts */}
               <div className="space-y-6 mt-6">
+                <CostProjectionChart 
+                  hardwareCost={results.hardware}
+                  yearlyOperational={results.yearly}
+                  cloudYearly={results.cloudYearly}
+                />
+
+                <PersonalizedRecommendations 
+                  serverType={results.serverType}
+                  users={results.users}
+                  storage={results.storage}
+                  performance={results.performance}
+                  breakeven={results.breakeven}
+                  hardwareCost={results.hardware}
+                />
+
                 <Card className="p-4">
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
                     <BarChart3 className="w-5 h-5 text-primary" />

@@ -5,6 +5,7 @@ import ServerCostCalculator from "@/components/ServerCostCalculator";
 import CalculatorTestimonials from "@/components/CalculatorTestimonials";
 import ResourceLibrary from "@/components/ResourceLibrary";
 import PopularCalculations from "@/components/PopularCalculations";
+import ExpertCredentials from "@/components/ExpertCredentials";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -184,6 +185,11 @@ const NetworkServerCostCalculator = () => {
         {/* Testimonials */}
         <div className="mb-16">
           <CalculatorTestimonials />
+        </div>
+
+        {/* Expert Credentials */}
+        <div className="mb-16">
+          <ExpertCredentials />
         </div>
 
         {/* Benefits Grid */}
