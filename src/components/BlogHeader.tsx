@@ -23,6 +23,12 @@ const BlogHeader = () => {
           
           <div className="hidden md:flex space-x-6">
             <Link to="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+            <Link 
+              to="/network-server-cost-calculator" 
+              className="text-primary font-semibold hover:text-primary/80 transition-colors flex items-center gap-1"
+            >
+              🧮 Calculator
+            </Link>
             <div className="relative group">
               <button className="text-foreground hover:text-primary transition-colors cursor-pointer">Categories</button>
               <div className="absolute top-full left-0 mt-2 w-60 bg-card border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -65,7 +71,7 @@ const BlogHeader = () => {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg" asChild>
-                <Link to="/network-server-cost">Calculate Server Costs</Link>
+                <Link to="/network-server-cost-calculator">🧮 Calculate Server Costs</Link>
               </Button>
               <Button variant="outline" size="lg" className="px-8 py-4 text-lg" asChild>
                 <Link to="/best-hardware-file-server">View Hardware Guide →</Link>

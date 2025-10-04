@@ -27,6 +27,15 @@ export const seoConfigs: Record<string, SEOConfig> = {
     twitterTitle: 'Network Server Cost Analysis 2024',
     twitterDescription: 'Complete server pricing guide with hardware and operational cost breakdowns.'
   },
+  '/network-server-cost-calculator': {
+    title: 'Network Server Cost Calculator 2025 - Free TCO Analysis Tool',
+    description: 'Calculate total network server costs instantly. Compare on-premise vs cloud with visual breakdowns, ROI analysis, and transparent methodology. Trusted by 10,000+ IT professionals.',
+    keywords: 'network server cost calculator, server TCO calculator, on-premise vs cloud cost, server pricing tool, IT budget calculator, server cost estimator',
+    ogTitle: 'Network Server Cost Calculator 2025 - Free TCO Analysis Tool',
+    ogDescription: 'Calculate total network server costs instantly. Compare on-premise vs cloud with visual breakdowns and ROI analysis.',
+    twitterTitle: 'Network Server Cost Calculator 2025',
+    twitterDescription: 'Free TCO calculator for network servers with instant cost comparison and visual breakdowns.'
+  },
   '/best-network-server-small-business': {
     title: 'Best Network Servers for Small Business 2024 - Expert Reviews',
     description: 'Top network server recommendations for small businesses. Compare features, pricing, and performance of the best SMB servers with detailed buying guide.',
