@@ -28,6 +28,20 @@ const ServerCostCalculator = () => {
   const [results, setResults] = useState<CalculationResult | null>(null);
   const [comparisonMode, setComparisonMode] = useState(false);
   const [savedScenarios, setSavedScenarios] = useState<CalculationResult[]>([]);
+  const [showHistory, setShowHistory] = useState(false);
+  const [calculationHistory, setCalculationHistory] = useState<CalculationResult[]>([]);
+
+  // Load history from localStorage on mount
+  useState(() => {
+    const saved = localStorage.getItem('serverCostHistory');
+    if (saved) {
+      try {
+        setCalculationHistory(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to load history', e);
+      }
+    }
+  });
 
   const calculateCosts = () => {
     let baseCost = 0;
@@ -87,6 +101,11 @@ const ServerCostCalculator = () => {
     };
     
     setResults(calculatedResults);
+    
+    // Add to history
+    const newHistory = [calculatedResults, ...calculationHistory.slice(0, 9)]; // Keep last 10
+    setCalculationHistory(newHistory);
+    localStorage.setItem('serverCostHistory', JSON.stringify(newHistory));
   };
 
   const saveScenario = () => {
@@ -143,6 +162,13 @@ https://networkservers.com/network-server-cost-calculator
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  };
+
+  // Industry benchmarks based on server type
+  const industryBenchmarks = {
+    home: { hardware: 850, monthly: 18, yearly: 216 },
+    'small-business': { hardware: 2800, monthly: 40, yearly: 480 },
+    enterprise: { hardware: 9500, monthly: 140, yearly: 1680 }
   };
 
   const COLORS = ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(var(--destructive))', 'hsl(var(--muted))'];
@@ -234,24 +260,37 @@ https://networkservers.com/network-server-cost-calculator
               </Button>
               
               {results && (
-                <div className="flex gap-2">
-                  <Button 
-                    onClick={saveScenario} 
-                    variant="outline" 
-                    className="flex-1"
-                    disabled={savedScenarios.length >= 3}
-                  >
-                    <Save className="w-4 h-4 mr-2" />
-                    Save for Comparison ({savedScenarios.length}/3)
-                  </Button>
-                  <Button 
-                    onClick={exportResults} 
-                    variant="outline"
-                    className="flex-1"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Export
-                  </Button>
+                <div className="space-y-2">
+                  <div className="flex gap-2">
+                    <Button 
+                      onClick={saveScenario} 
+                      variant="outline" 
+                      className="flex-1"
+                      disabled={savedScenarios.length >= 3}
+                    >
+                      <Save className="w-4 h-4 mr-2" />
+                      Save ({savedScenarios.length}/3)
+                    </Button>
+                    <Button 
+                      onClick={exportResults} 
+                      variant="outline"
+                      className="flex-1"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Export
+                    </Button>
+                  </div>
+                  {calculationHistory.length > 0 && (
+                    <Button 
+                      onClick={() => setShowHistory(!showHistory)} 
+                      variant="ghost" 
+                      className="w-full"
+                      size="sm"
+                    >
+                      <FileText className="w-4 h-4 mr-2" />
+                      {showHistory ? 'Hide' : 'View'} History ({calculationHistory.length})
+                    </Button>
+                  )}
                 </div>
               )}
             </div>
@@ -315,6 +354,32 @@ https://networkservers.com/network-server-cost-calculator
                     </div>
                     <div className="text-xs text-purple-600/70 dark:text-purple-400/70">
                       On-premise ROI after this period
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Industry Benchmark Comparison */}
+                <Card className="p-4 border border-green-200 bg-gradient-to-br from-green-50 to-transparent dark:from-green-950/20">
+                  <div className="space-y-3">
+                    <div className="text-sm font-medium text-green-700 dark:text-green-400">vs Industry Average</div>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-muted-foreground">Your Hardware</span>
+                        <span className="font-semibold">${results.hardware.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-muted-foreground">Industry Avg</span>
+                        <span className="font-semibold text-green-600 dark:text-green-400">
+                          ${industryBenchmarks[results.serverType as keyof typeof industryBenchmarks].hardware.toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="pt-2 border-t">
+                        <div className="text-xs text-center">
+                          {results.hardware < industryBenchmarks[results.serverType as keyof typeof industryBenchmarks].hardware 
+                            ? '✓ Below average cost' 
+                            : '↑ Above average cost'}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -382,6 +447,45 @@ https://networkservers.com/network-server-cost-calculator
             </div>
           )}
         </div>
+
+        {/* History Panel */}
+        {showHistory && calculationHistory.length > 0 && (
+          <div className="mt-8 pt-8 border-t">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-semibold text-lg">Recent Calculations</h3>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => {
+                  setCalculationHistory([]);
+                  localStorage.removeItem('serverCostHistory');
+                  setShowHistory(false);
+                }}
+              >
+                Clear History
+              </Button>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              {calculationHistory.slice(0, 6).map((calc, index) => (
+                <Card key={index} className="p-3 text-sm">
+                  <div className="space-y-2">
+                    <div className="text-xs text-muted-foreground">
+                      {calc.serverType} • {calc.users} users • {calc.storage}TB
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-xs">Hardware:</span>
+                      <span className="font-semibold">${calc.hardware.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-xs">Break-even:</span>
+                      <span className="font-semibold text-primary">{calc.breakeven}mo</span>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Comparison Mode */}
         {comparisonMode && savedScenarios.length > 0 && (

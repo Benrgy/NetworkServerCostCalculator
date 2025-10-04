@@ -111,6 +111,37 @@ const NetworkServerCostCalculator = () => {
           </div>
         </div>
 
+        {/* Video Tutorial Section */}
+        <Card className="max-w-4xl mx-auto mb-12">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <span className="text-2xl">🎥</span>
+              Video Tutorial: Mastering the Calculator
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center mb-4">
+              <div className="text-center p-8">
+                <div className="text-6xl mb-4">▶️</div>
+                <h4 className="text-xl font-semibold mb-2">Complete Calculator Walkthrough</h4>
+                <p className="text-muted-foreground mb-4">
+                  Watch our 5-minute tutorial on getting accurate cost estimates for your network server
+                </p>
+                <div className="flex gap-2 justify-center text-sm text-muted-foreground flex-wrap">
+                  <span>✓ Input configuration tips</span>
+                  <span>•</span>
+                  <span>✓ Comparison strategies</span>
+                  <span>•</span>
+                  <span>✓ Export & share results</span>
+                </div>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground text-center">
+              Learn how to compare multiple scenarios, understand the methodology, and make data-driven decisions
+            </p>
+          </CardContent>
+        </Card>
+
         {/* Trust Indicators */}
         <Card className="max-w-4xl mx-auto mb-12 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
           <CardContent className="p-8">

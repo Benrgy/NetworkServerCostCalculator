@@ -45,6 +45,15 @@ export const seoConfigs: Record<string, SEOConfig> = {
     twitterTitle: 'Server Cost Calculator Tutorial',
     twitterDescription: 'Complete guide to using our network server cost calculator effectively.'
   },
+  '/case-study-law-firm-server-costs': {
+    title: 'Case Study: How a Law Firm Cut IT Costs 43% with On-Premise Server',
+    description: 'Real-world case study: Miller & Associates Law Firm saved $47,000 over 3 years by switching from cloud to on-premise server infrastructure. See the complete cost breakdown and ROI analysis.',
+    keywords: 'server cost case study, on-premise vs cloud case study, law firm IT infrastructure, server ROI case study, network server savings',
+    ogTitle: 'Case Study: Law Firm Cuts IT Costs 43% with On-Premise Server',
+    ogDescription: 'Real-world case study showing $47,000 in savings over 3 years with detailed cost breakdown and implementation timeline.',
+    twitterTitle: 'Case Study: 43% IT Cost Reduction',
+    twitterDescription: 'How a law firm saved $47K over 3 years by switching to on-premise servers.'
+  },
   '/best-network-server-small-business': {
     title: 'Best Network Servers for Small Business 2024 - Expert Reviews',
     description: 'Top network server recommendations for small businesses. Compare features, pricing, and performance of the best SMB servers with detailed buying guide.',

@@ -25,6 +25,7 @@ import BuildFileServerHome2025 from "./pages/BuildFileServerHome2025";
 import NetworkServerVsNasOffice from "./pages/NetworkServerVsNasOffice";
 import CheapestBusinessFileServer from "./pages/CheapestBusinessFileServer";
 import EnterpriseServerBrands2025 from "./pages/EnterpriseServerBrands2025";
+import CaseStudySmallBusiness from "./pages/CaseStudySmallBusiness";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -43,6 +44,7 @@ const App = () => (
               <Route path="/network-server-cost" element={<NetworkServerCost />} />
               <Route path="/network-server-cost-calculator" element={<NetworkServerCostCalculator />} />
               <Route path="/how-to-use-server-cost-calculator" element={<ServerCalculatorGuide />} />
+              <Route path="/case-study-law-firm-server-costs" element={<CaseStudySmallBusiness />} />
               <Route path="/best-network-server-small-business" element={<BestServerSmallBusiness />} />
               <Route path="/dedicated-server-vs-cloud-server-pros-cons" element={<DedicatedVsCloudServer />} />
               <Route path="/network-server-setup-guide-beginners" element={<ServerSetupGuide />} />

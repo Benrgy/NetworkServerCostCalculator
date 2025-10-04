@@ -7,38 +7,40 @@ export const blogPosts = [
   {
     id: 1,
     image: serverDatacenter,
-    title: "Network Server Cost Analysis: Enterprise vs Cloud Solutions",
-    excerpt: "Discover the true cost comparison between on-premises enterprise servers and cloud solutions. We break down hardware, maintenance, energy, and operational costs to help you make informed decisions for your network infrastructure.",
+    title: "How to Use the Network Server Cost Calculator - Complete Guide",
+    excerpt: "Master our free server cost calculator with this step-by-step tutorial. Learn how to compare scenarios, export results, and make data-driven infrastructure decisions for your business.",
     author: "Debar Sem",
-    date: "January 15, 2024",
-    category: "Cost Analysis"
+    date: "March 10, 2025",
+    category: "Tutorial",
+    link: "/how-to-use-server-cost-calculator"
   },
   {
     id: 2,
     image: networkHardware,
-    title: "Building Cost-Effective Network Infrastructure on a Budget",
-    excerpt: "Learn how to design and implement powerful network server solutions without breaking the budget. This comprehensive guide covers hardware selection, configuration optimization, and cost-saving strategies for small to medium businesses.",
+    title: "Case Study: Law Firm Cuts IT Costs 43% with On-Premise Server",
+    excerpt: "Real-world case study showing how Miller & Associates Law Firm saved $47,000 over 3 years by switching from cloud to on-premise infrastructure using our cost calculator.",
     author: "Debar Sem",
-    date: "January 12, 2024",
-    category: "Hardware"
+    date: "March 8, 2025",
+    category: "Case Study",
+    link: "/case-study-law-firm-server-costs"
   },
   {
     id: 3,
     image: cloudServers,
-    title: "Hidden Costs of Network Server Management You Need to Know",
-    excerpt: "Beyond the initial hardware investment, network servers come with ongoing costs that can surprise businesses. From power consumption to security updates, we reveal the hidden expenses and how to budget for them effectively.",
+    title: "Network Server Cost Analysis: Enterprise vs Cloud Solutions",
+    excerpt: "Discover the true cost comparison between on-premises enterprise servers and cloud solutions. We break down hardware, maintenance, energy, and operational costs to help you make informed decisions.",
     author: "Debar Sem",
-    date: "January 10, 2024",
-    category: "Management"
+    date: "January 15, 2025",
+    category: "Cost Analysis"
   },
   {
     id: 4,
     image: enterpriseServers,
-    title: "ROI Calculator: When to Upgrade Your Network Server Infrastructure",
-    excerpt: "Making the right decision about server upgrades requires careful analysis of costs versus benefits. Use our comprehensive ROI framework to determine the optimal timing for your network infrastructure investments.",
+    title: "Building Cost-Effective Network Infrastructure on a Budget",
+    excerpt: "Learn how to design and implement powerful network server solutions without breaking the budget. This comprehensive guide covers hardware selection, configuration optimization, and cost-saving strategies.",
     author: "Debar Sem",
-    date: "January 8, 2024",
-    category: "Investment"
+    date: "January 12, 2025",
+    category: "Hardware"
   }
 ];
 
