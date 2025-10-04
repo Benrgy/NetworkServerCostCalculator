@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import NetworkServerCost from "./pages/NetworkServerCost";
 import NetworkServerCostCalculator from "./pages/NetworkServerCostCalculator";
+import ServerCalculatorGuide from "./pages/ServerCalculatorGuide";
 import BestServerSmallBusiness from "./pages/BestServerSmallBusiness";
 import DedicatedVsCloudServer from "./pages/DedicatedVsCloudServer";
 import ServerSetupGuide from "./pages/ServerSetupGuide";
@@ -41,6 +42,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/network-server-cost" element={<NetworkServerCost />} />
               <Route path="/network-server-cost-calculator" element={<NetworkServerCostCalculator />} />
+              <Route path="/how-to-use-server-cost-calculator" element={<ServerCalculatorGuide />} />
               <Route path="/best-network-server-small-business" element={<BestServerSmallBusiness />} />
               <Route path="/dedicated-server-vs-cloud-server-pros-cons" element={<DedicatedVsCloudServer />} />
               <Route path="/network-server-setup-guide-beginners" element={<ServerSetupGuide />} />

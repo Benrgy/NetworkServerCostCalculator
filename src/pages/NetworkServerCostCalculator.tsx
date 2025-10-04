@@ -282,14 +282,14 @@ const NetworkServerCostCalculator = () => {
                 Use our calculator above to get instant cost estimates, then explore our comprehensive guides on server selection, setup, and optimization.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/best-network-server-small-business" className="inline-block">
+                <a href="/how-to-use-server-cost-calculator" className="inline-block">
                   <Badge className="px-6 py-3 text-base cursor-pointer hover:bg-primary/90 bg-primary text-primary-foreground">
-                    View Server Buying Guide →
+                    📖 How to Use Calculator
                   </Badge>
                 </a>
-                <a href="/dedicated-server-vs-cloud-server-pros-cons" className="inline-block">
+                <a href="/best-network-server-small-business" className="inline-block">
                   <Badge variant="outline" className="px-6 py-3 text-base cursor-pointer hover:bg-accent/10">
-                    Compare Cloud vs On-Premise
+                    View Server Buying Guide →
                   </Badge>
                 </a>
               </div>

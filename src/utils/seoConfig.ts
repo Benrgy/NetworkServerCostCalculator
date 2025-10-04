@@ -36,6 +36,15 @@ export const seoConfigs: Record<string, SEOConfig> = {
     twitterTitle: 'Network Server Cost Calculator 2025',
     twitterDescription: 'Free TCO calculator for network servers with instant cost comparison and visual breakdowns.'
   },
+  '/how-to-use-server-cost-calculator': {
+    title: 'How to Use Server Cost Calculator - Complete Tutorial 2025',
+    description: 'Step-by-step guide to using our network server cost calculator. Learn comparison mode, export features, and how to make data-driven infrastructure decisions.',
+    keywords: 'server cost calculator guide, how to calculate server costs, TCO calculator tutorial, server pricing comparison guide, calculator instructions',
+    ogTitle: 'How to Use Server Cost Calculator - Complete Tutorial',
+    ogDescription: 'Master our server cost calculator with this step-by-step guide including comparison mode and export features.',
+    twitterTitle: 'Server Cost Calculator Tutorial',
+    twitterDescription: 'Complete guide to using our network server cost calculator effectively.'
+  },
   '/best-network-server-small-business': {
     title: 'Best Network Servers for Small Business 2024 - Expert Reviews',
     description: 'Top network server recommendations for small businesses. Compare features, pricing, and performance of the best SMB servers with detailed buying guide.',
