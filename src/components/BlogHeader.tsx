@@ -5,14 +5,14 @@ const BlogHeader = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   return (
-    <header className="relative overflow-hidden bg-background border-b border-border">
+    <header className="relative bg-background border-b border-border">
       {/* Top notification bar */}
       <div className="bg-muted text-foreground text-sm py-2 px-4 text-center">
         🆕 New for 2025: Complete SMB Server Cost Breakdown & Hardware Guide →
       </div>
       
       {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-4">
+      <nav className="flex items-center justify-between px-6 py-4 relative z-10">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
@@ -30,14 +30,44 @@ const BlogHeader = () => {
               🧮 Calculator
             </Link>
             <div className="relative group">
-              <button className="text-foreground hover:text-primary transition-colors cursor-pointer">Categories</button>
-              <div className="absolute top-full left-0 mt-2 w-60 bg-card border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <button className="text-foreground hover:text-primary transition-colors cursor-pointer flex items-center gap-1">
+                Categories
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-60 bg-background border border-border rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] pointer-events-none group-hover:pointer-events-auto">
                 <div className="py-2">
-                  <Link to="/network-server-cost" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Cost & Pricing</Link>
-                  <Link to="/network-server-setup-guide-beginners" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Setup & Configuration</Link>
-                  <Link to="/secure-home-network-server" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Security & Maintenance</Link>
-                  <Link to="/best-hardware-file-server" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Hardware & Performance</Link>
-                  <Link to="/best-network-server-small-business" className="block px-4 py-2 text-foreground hover:bg-accent/10 transition-colors">Business Solutions</Link>
+                  <Link 
+                    to="/network-server-cost" 
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    💰 Cost & Pricing
+                  </Link>
+                  <Link 
+                    to="/network-server-setup-guide-beginners" 
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    ⚙️ Setup & Configuration
+                  </Link>
+                  <Link 
+                    to="/secure-home-network-server" 
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    🔒 Security & Maintenance
+                  </Link>
+                  <Link 
+                    to="/best-hardware-file-server" 
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    🖥️ Hardware & Performance
+                  </Link>
+                  <Link 
+                    to="/best-network-server-small-business" 
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    🏢 Business Solutions
+                  </Link>
                 </div>
               </div>
             </div>
@@ -53,7 +83,7 @@ const BlogHeader = () => {
       
       {/* Hero content */}
       {isHome && (
-        <div className="bg-background py-24 px-6">
+        <div className="bg-background py-24 px-6 overflow-hidden">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1 text-sm text-muted-foreground">
               <span className="inline-block h-2 w-2 rounded-full bg-primary" />
