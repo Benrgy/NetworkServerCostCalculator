@@ -1,11 +1,32 @@
 import { useState } from "react";
+import { z } from "zod";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Calculator, TrendingUp, DollarSign, PieChart, BarChart3, Info, Download, Save, X, FileText } from "lucide-react";
+import { Calculator, TrendingUp, DollarSign, PieChart, BarChart3, Info, Download, Save, X, FileText, AlertCircle } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart as RePieChart, Pie, Cell } from "recharts";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { toast } from "@/hooks/use-toast";
+
+// Input validation schema
+const calculatorInputSchema = z.object({
+  serverType: z.enum(["home", "small-business", "enterprise"], {
+    errorMap: () => ({ message: "Please select a valid server type" })
+  }),
+  users: z.number()
+    .int({ message: "Number of users must be a whole number" })
+    .min(1, { message: "Minimum 1 user required" })
+    .max(1000, { message: "Maximum 1000 users supported" }),
+  storage: z.number()
+    .int({ message: "Storage must be a whole number" })
+    .min(1, { message: "Minimum 1TB storage required" })
+    .max(500, { message: "Maximum 500TB storage supported" }),
+  performance: z.enum(["standard", "high", "premium"], {
+    errorMap: () => ({ message: "Please select a valid performance tier" })
+  })
+});
 
 interface CalculationResult {
   hardware: number;
@@ -21,29 +42,64 @@ interface CalculationResult {
 }
 
 const ServerCostCalculator = () => {
-  const [serverType, setServerType] = useState("small-business");
+  const [serverType, setServerType] = useState<"home" | "small-business" | "enterprise">("small-business");
   const [users, setUsers] = useState(10);
   const [storage, setStorage] = useState(2);
-  const [performance, setPerformance] = useState("standard");
+  const [performance, setPerformance] = useState<"standard" | "high" | "premium">("standard");
   const [results, setResults] = useState<CalculationResult | null>(null);
   const [comparisonMode, setComparisonMode] = useState(false);
   const [savedScenarios, setSavedScenarios] = useState<CalculationResult[]>([]);
   const [showHistory, setShowHistory] = useState(false);
   const [calculationHistory, setCalculationHistory] = useState<CalculationResult[]>([]);
+  const [validationError, setValidationError] = useState<string | null>(null);
 
-  // Load history from localStorage on mount
+  // Load history from localStorage on mount with validation
   useState(() => {
     const saved = localStorage.getItem('serverCostHistory');
     if (saved) {
       try {
-        setCalculationHistory(JSON.parse(saved));
+        const parsed = JSON.parse(saved);
+        // Validate that parsed data is an array and has reasonable structure
+        if (Array.isArray(parsed) && parsed.length <= 50) {
+          setCalculationHistory(parsed);
+        }
       } catch (e) {
-        console.error('Failed to load history', e);
+        // Silently handle corrupt localStorage data
+        localStorage.removeItem('serverCostHistory');
       }
     }
   });
 
+  // Sanitize numeric input
+  const sanitizeNumber = (value: string, min: number, max: number, defaultValue: number): number => {
+    const parsed = parseInt(value);
+    if (isNaN(parsed)) return defaultValue;
+    return Math.max(min, Math.min(max, parsed));
+  };
+
   const calculateCosts = () => {
+    // Clear previous validation errors
+    setValidationError(null);
+
+    // Validate inputs
+    const validationResult = calculatorInputSchema.safeParse({
+      serverType,
+      users,
+      storage,
+      performance
+    });
+
+    if (!validationResult.success) {
+      const errorMessage = validationResult.error.errors[0]?.message || "Invalid input";
+      setValidationError(errorMessage);
+      toast({
+        title: "Validation Error",
+        description: errorMessage,
+        variant: "destructive"
+      });
+      return;
+    }
+
     let baseCost = 0;
     let monthlyCost = 0;
     let powerCost = 0;
@@ -102,10 +158,16 @@ const ServerCostCalculator = () => {
     
     setResults(calculatedResults);
     
-    // Add to history
+    // Add to history with size limit
     const newHistory = [calculatedResults, ...calculationHistory.slice(0, 9)]; // Keep last 10
     setCalculationHistory(newHistory);
-    localStorage.setItem('serverCostHistory', JSON.stringify(newHistory));
+    
+    try {
+      localStorage.setItem('serverCostHistory', JSON.stringify(newHistory));
+    } catch (e) {
+      // Handle localStorage quota exceeded
+      console.warn('Unable to save calculation history');
+    }
   };
 
   const saveScenario = () => {
@@ -124,15 +186,18 @@ const ServerCostCalculator = () => {
   const exportResults = () => {
     if (!results) return;
     
+    // Sanitize data for export (prevent any potential code injection in text files)
+    const sanitize = (str: string | number) => String(str).replace(/[<>]/g, '');
+    
     const reportText = `
 NETWORK SERVER COST ANALYSIS REPORT
-Generated: ${new Date().toLocaleDateString()}
+Generated: ${sanitize(new Date().toLocaleDateString())}
 
 CONFIGURATION:
-- Server Type: ${results.serverType}
-- Number of Users: ${results.users}
-- Storage: ${results.storage} TB
-- Performance Tier: ${results.performance}
+- Server Type: ${sanitize(results.serverType)}
+- Number of Users: ${sanitize(results.users)}
+- Storage: ${sanitize(results.storage)} TB
+- Performance Tier: ${sanitize(results.performance)}
 
 ON-PREMISE COSTS:
 - Hardware Investment: $${results.hardware.toLocaleString()}
@@ -153,15 +218,29 @@ Generated by NetworkServers Calculator
 https://networkservers.com/network-server-cost-calculator
     `.trim();
 
-    const blob = new Blob([reportText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `server-cost-analysis-${Date.now()}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    try {
+      const blob = new Blob([reportText], { type: 'text/plain; charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      // Sanitize filename
+      a.download = `server-cost-analysis-${Date.now()}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      toast({
+        title: "Export Successful",
+        description: "Cost analysis report downloaded successfully"
+      });
+    } catch (e) {
+      toast({
+        title: "Export Failed",
+        description: "Unable to export report. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   // Industry benchmarks based on server type
@@ -203,7 +282,15 @@ https://networkservers.com/network-server-cost-calculator
           <div className="space-y-6">
             <div>
               <Label htmlFor="server-type">Server Type</Label>
-              <Select value={serverType} onValueChange={setServerType}>
+              <Select 
+                value={serverType} 
+                onValueChange={(value) => {
+                  if (value === "home" || value === "small-business" || value === "enterprise") {
+                    setServerType(value);
+                    setValidationError(null);
+                  }
+                }}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -221,10 +308,25 @@ https://networkservers.com/network-server-cost-calculator
                 id="users"
                 type="number"
                 value={users}
-                onChange={(e) => setUsers(parseInt(e.target.value) || 0)}
+                onChange={(e) => {
+                  const sanitized = sanitizeNumber(e.target.value, 1, 1000, users);
+                  setUsers(sanitized);
+                  setValidationError(null);
+                }}
+                onBlur={(e) => {
+                  // Enforce limits on blur
+                  const sanitized = sanitizeNumber(e.target.value, 1, 1000, 10);
+                  setUsers(sanitized);
+                }}
                 min="1"
-                max="500"
+                max="1000"
+                step="1"
+                aria-label="Number of Users"
+                aria-describedby="users-hint"
               />
+              <p id="users-hint" className="text-xs text-muted-foreground mt-1">
+                Enter 1-1000 users
+              </p>
             </div>
 
             <div>
@@ -233,15 +335,38 @@ https://networkservers.com/network-server-cost-calculator
                 id="storage"
                 type="number"
                 value={storage}
-                onChange={(e) => setStorage(parseInt(e.target.value) || 0)}
+                onChange={(e) => {
+                  const sanitized = sanitizeNumber(e.target.value, 1, 500, storage);
+                  setStorage(sanitized);
+                  setValidationError(null);
+                }}
+                onBlur={(e) => {
+                  // Enforce limits on blur
+                  const sanitized = sanitizeNumber(e.target.value, 1, 500, 2);
+                  setStorage(sanitized);
+                }}
                 min="1"
-                max="100"
+                max="500"
+                step="1"
+                aria-label="Storage Required in Terabytes"
+                aria-describedby="storage-hint"
               />
+              <p id="storage-hint" className="text-xs text-muted-foreground mt-1">
+                Enter 1-500 TB
+              </p>
             </div>
 
             <div>
               <Label htmlFor="performance">Performance Tier</Label>
-              <Select value={performance} onValueChange={setPerformance}>
+              <Select 
+                value={performance} 
+                onValueChange={(value) => {
+                  if (value === "standard" || value === "high" || value === "premium") {
+                    setPerformance(value);
+                    setValidationError(null);
+                  }
+                }}
+              >
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -253,8 +378,19 @@ https://networkservers.com/network-server-cost-calculator
               </Select>
             </div>
 
+            {validationError && (
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>{validationError}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-3">
-              <Button onClick={calculateCosts} className="w-full">
+              <Button 
+                onClick={calculateCosts} 
+                className="w-full"
+                aria-label="Calculate Server Costs"
+              >
                 <Calculator className="w-4 h-4 mr-2" />
                 Calculate Server Costs
               </Button>
