@@ -30,41 +30,43 @@ const BlogHeader = () => {
               🧮 Calculator
             </Link>
             <div className="relative group">
-              <button className="text-foreground hover:text-primary transition-colors cursor-pointer flex items-center gap-1">
+              <button className="text-foreground hover:text-primary transition-colors cursor-pointer flex items-center gap-1 py-2">
                 Categories
                 <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute top-full left-0 mt-2 w-60 bg-background border border-border rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[100] pointer-events-none group-hover:pointer-events-auto">
-                <div className="py-2">
+              {/* Invisible bridge to prevent dropdown from closing */}
+              <div className="absolute top-full left-0 w-60 h-2 opacity-0 group-hover:opacity-0 z-[100]"></div>
+              <div className="absolute top-full left-0 mt-2 w-60 bg-background border border-border rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-[100]">
+                <div className="py-1">
                   <Link 
                     to="/network-server-cost" 
-                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md mx-1"
                   >
                     💰 Cost & Pricing
                   </Link>
                   <Link 
                     to="/network-server-setup-guide-beginners" 
-                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md mx-1"
                   >
                     ⚙️ Setup & Configuration
                   </Link>
                   <Link 
                     to="/secure-home-network-server" 
-                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md mx-1"
                   >
                     🔒 Security & Maintenance
                   </Link>
                   <Link 
                     to="/best-hardware-file-server" 
-                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md mx-1"
                   >
                     🖥️ Hardware & Performance
                   </Link>
                   <Link 
                     to="/best-network-server-small-business" 
-                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block px-4 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md mx-1"
                   >
                     🏢 Business Solutions
                   </Link>
