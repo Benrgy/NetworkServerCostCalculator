@@ -403,11 +403,21 @@ const CaseStudySmallBusiness = () => {
               <p className="text-muted-foreground mb-6">
                 See how much your organization could save with an on-premise or hybrid infrastructure
               </p>
-              <Button asChild size="lg">
-                <Link to="/network-server-cost-calculator">
-                  Try the Calculator →
-                </Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button asChild size="lg">
+                  <Link to="/network-server-cost-calculator">
+                    🧮 Try the Calculator
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link to="/how-to-use-server-cost-calculator">
+                    📖 Calculator Tutorial
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground mt-4">
+                Free tool • No signup required • Instant results
+              </p>
             </CardContent>
           </Card>
         </article>

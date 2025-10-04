@@ -92,7 +92,7 @@ const Index = () => {
       
       
       {/* Server Cost Calculator */}
-      <div className="container mx-auto px-6 py-12">
+      <div id="calculator" className="container mx-auto px-6 py-12">
         <ServerCostCalculator />
       </div>
       

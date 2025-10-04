@@ -2,11 +2,16 @@ import { useEffect } from "react";
 import BlogHeader from "@/components/BlogHeader";
 import BlogFooter from "@/components/BlogFooter";
 import ServerCostCalculator from "@/components/ServerCostCalculator";
+import CalculatorTestimonials from "@/components/CalculatorTestimonials";
+import ResourceLibrary from "@/components/ResourceLibrary";
+import PopularCalculations from "@/components/PopularCalculations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CheckCircle2, TrendingUp, Shield, Zap, Users, Award } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import SEO from "@/components/SEO";
+import { Link } from "react-router-dom";
 
 const NetworkServerCostCalculator = () => {
   useEffect(() => {
@@ -166,9 +171,19 @@ const NetworkServerCostCalculator = () => {
           </CardContent>
         </Card>
 
+        {/* Popular Calculations */}
+        <div className="mb-16">
+          <PopularCalculations />
+        </div>
+
         {/* Calculator Section */}
         <div className="mb-16">
           <ServerCostCalculator />
+        </div>
+
+        {/* Testimonials */}
+        <div className="mb-16">
+          <CalculatorTestimonials />
         </div>
 
         {/* Benefits Grid */}
@@ -281,6 +296,11 @@ const NetworkServerCostCalculator = () => {
           </Card>
         </div>
 
+        {/* Resource Library */}
+        <div className="mb-16">
+          <ResourceLibrary />
+        </div>
+
         {/* FAQ Section */}
         <div className="max-w-4xl mx-auto mb-16">
           <Card>
@@ -310,20 +330,42 @@ const NetworkServerCostCalculator = () => {
             <CardContent className="p-8 text-center">
               <h2 className="text-2xl font-bold mb-4">Ready to Make an Informed Decision?</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Use our calculator above to get instant cost estimates, then explore our comprehensive guides on server selection, setup, and optimization.
+                Join 10,000+ IT professionals who've used our calculator to make data-driven infrastructure decisions and save thousands in costs.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/how-to-use-server-cost-calculator" className="inline-block">
-                  <Badge className="px-6 py-3 text-base cursor-pointer hover:bg-primary/90 bg-primary text-primary-foreground">
-                    📖 How to Use Calculator
-                  </Badge>
-                </a>
-                <a href="/best-network-server-small-business" className="inline-block">
-                  <Badge variant="outline" className="px-6 py-3 text-base cursor-pointer hover:bg-accent/10">
-                    View Server Buying Guide →
-                  </Badge>
-                </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                <Button 
+                  asChild
+                  size="lg"
+                  className="px-6"
+                >
+                  <Link to="/how-to-use-server-cost-calculator">
+                    📖 Calculator Tutorial
+                  </Link>
+                </Button>
+                <Button 
+                  asChild
+                  variant="outline" 
+                  size="lg"
+                  className="px-6"
+                >
+                  <Link to="/case-study-law-firm-server-costs">
+                    📊 View Case Studies
+                  </Link>
+                </Button>
+                <Button 
+                  asChild
+                  variant="outline" 
+                  size="lg"
+                  className="px-6"
+                >
+                  <Link to="/best-network-server-small-business">
+                    🛒 Buying Guide
+                  </Link>
+                </Button>
               </div>
+              <p className="text-xs text-muted-foreground">
+                Need expert guidance? <Link to="/contact" className="text-primary hover:underline">Schedule a free consultation</Link> with our infrastructure team
+              </p>
             </CardContent>
           </Card>
         </div>
